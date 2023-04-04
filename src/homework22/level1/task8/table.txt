@@ -1,0 +1,20 @@
+1. FC Cologne: 39
+1. FC Union Berlin: 42
+1. FSV Mainz 05: 38
+Arminia Bielefeld: 17
+Bayer 04 Leverkusen: 57
+Borussia Dortmund: 62
+Borussia Monchengladbach: 63
+Eintracht Frankfurt: 53
+FC Augsburg: 46
+FC Bayern Munich: 60
+FC Schalke 04: 28
+Freiburg: 52
+Hertha BSC: 59
+RB Leipzig: 47
+SpVgg Greuther Fürth: 26
+Stuttgart: 47
+TSG 1899 Hoffenheim: 55
+VfL Bochum: 45
+VfL Wolfsburg: 49
+Werder Bremen: 27
