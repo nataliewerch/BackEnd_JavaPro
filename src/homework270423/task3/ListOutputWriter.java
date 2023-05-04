@@ -6,9 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ListOutputWriter extends Writer {
-
     List<String> list;
-
     public ListOutputWriter(List<String> list) {
         this.list = list;
     }
