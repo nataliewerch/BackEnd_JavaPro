@@ -5,13 +5,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MatchTest {
     public static void main(String[] args) throws IOException {
         Path path = Path.of("src/homework22/level1/task8/matches.txt");
        // файл FC Augsburg.txt с результатами матча этой команды
-       List<String> augsburgResult = Files.lines(path)
+      /* List<String> augsburgResult = Files.lines(path)
                 .map(Match::new)
                 .filter(s -> s.getFirstTeam().equals("FC Augsburg") || s.getSecondTeam().equals("FC Augsburg"))
                 .map(s -> {
@@ -41,12 +43,15 @@ public class MatchTest {
                 .map(Match::new)
                 .map(Match::getWinner).toList();
         Files.write(Path.of("src/homework22/level1/task8/winners.txt"), winners, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
-        System.out.println(winners);
+        System.out.println(winners);*/
 
         //вывести файл table.txt информацию какая команда сколько забила мячей
         List<String> goalCount = Files.lines(path)
                 .map(Match::new)
-                .collect(Collectors.groupingBy(Match::getFirstTeam, Collectors.summingInt(Match::goalCounter)))
+                .flatMap(s -> Stream.of(
+                        Map.entry(s.getFirstTeam(), s.getFirstTeamCount()),
+                        Map.entry(s.getSecondTeam(), s.getSecondTeamCount())))
+                .collect(Collectors.groupingBy(Map.Entry::getKey, Collectors.summingInt(Map.Entry::getValue)))
                 .entrySet().stream()
                 .map(s -> s.getKey() + ": " + s.getValue())
                 .sorted().toList();
